@@ -1,10 +1,12 @@
-package effective_java.chapter_2_creating_and_destorying_objects.item_2_many_paramters_condition;
+package effective_java_editor_2.chapter_2_creating_and_destorying_objects.item_2_many_paramters_condition;
 
 /**
  * <p> 构建器模式 </p>
  * <p>
  *     优点：
  *          1. 拥有多个可变参数，扩展参数和调用时都很灵活
+ *          2. 线程安全
+ *          3. 可以生成不可变对象
  *     缺点：
  *          1. 创建对象先要创建 builder
  *          2. 创建 builder 需要一些额外的性能（代价很小，在对性能要求不高的情况下可忽略不计）
@@ -13,7 +15,7 @@ package effective_java.chapter_2_creating_and_destorying_objects.item_2_many_par
  * @author zhixiang.yuan
  * @create 2018/08/16 00:16
  */
-class Client{
+class Client_1{
 
     public static void main(String[] args) {
         // 模拟客户端调用
@@ -40,6 +42,7 @@ public class BuilderPattern {
         param_4 = builder.param_4;
     }
 
+    // 这里还可以通过实现 Builder 接口来实现这个功能
     public static class Builder {
         /** required parameters */
         private final int param_1;
