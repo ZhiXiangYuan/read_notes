@@ -49,16 +49,19 @@ public class BuilderPattern {
         private int param_4 = 0;
 
         public Builder(int param_1, int param_2){
+            // TODO 实际使用时添加参数检查，不符合则抛出异常
             this.param_1 = param_1;
             this.param_2 = param_2;
         }
 
         public Builder param_3(int val){
+            // TODO 实际使用时添加参数检查，不符合则抛出异常
             param_3 = val;
             return this;
         }
 
         public Builder param_4(int val){
+            // TODO 实际使用时添加参数检查，不符合则抛出异常
             param_4 = val;
             return this;
         }
