@@ -1,4 +1,4 @@
-package effective_java_editor_2.chapter_2_creating_and_destorying_objects.item_3_singleton_pattern;
+package singleton_patterns;
 
 /**
  * <p> 单例模式 </p>
