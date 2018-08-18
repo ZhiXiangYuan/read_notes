@@ -28,5 +28,4 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
     }
 
-
 }
