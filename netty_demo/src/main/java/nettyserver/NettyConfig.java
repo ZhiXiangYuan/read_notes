@@ -1,6 +1,7 @@
 package nettyserver;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -10,6 +11,9 @@ import io.netty.channel.sctp.nio.NioSctpServerChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
@@ -50,6 +54,13 @@ public class NettyConfig {
 
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
+                            /** 下面这个类不太懂 */
+//                            ch.pipeline().addLast(new LineBasedFrameDecoder(2048));
+                            /** 下面这个类按字节长度解析，少于 2048 则粘包，多于 2048 则切包 */
+//                            ch.pipeline().addLast(new FixedLengthFrameDecoder(2048));
+                            /** 下面这个类按照 $$__ 进行切包*/
+//                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,
+//                                    Unpooled.copiedBuffer("$$__".getBytes())));
                             ch.pipeline().addLast("decoder", new StringDecoder());
                             ch.pipeline().addLast("encoder", new StringEncoder());
                             ch.pipeline().addLast(new ServerHandler());
