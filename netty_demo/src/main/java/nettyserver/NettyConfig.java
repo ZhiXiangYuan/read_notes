@@ -16,7 +16,7 @@ import io.netty.handler.codec.string.StringEncoder;
 import java.net.InetSocketAddress;
 
 /**
- * <p> netty 配置类 </p>
+ * <p> netty 服务端配置类 </p>
  *
  * @author zhixiang.yuan
  * @create 2018/08/17 18:29

@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
- * <p> 服务处理器 </p>
+ * <p> 服务端处理器 </p>
  *
  * @author zhixiang.yuan
  * @create 2018/08/17 18:21
