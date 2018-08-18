@@ -57,7 +57,7 @@ public class NettyConfig {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             /** 下面这个类实现心跳机制，参数分别为：读超时时间、写超时时间、所有类型超时时间、时间单位 */
-//                            ch.pipeline().addLast(new IdleStateHandler(5,0,0, TimeUnit.SECONDS));
+                            ch.pipeline().addLast(new IdleStateHandler(5,0,0, TimeUnit.SECONDS));
                             /** 下面这个类不太懂 */
 //                            ch.pipeline().addLast(new LineBasedFrameDecoder(2048));
                             /** 下面这个类按字节长度解析，少于 2048 则粘包，多于 2048 则切包 */

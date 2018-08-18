@@ -7,6 +7,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p> netty 客户端配置类 </p>
@@ -33,6 +36,7 @@ public class ClientConfig {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline p = ch.pipeline();
+                            p.addLast("ping", new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS));
                             p.addLast("decoder", new StringDecoder());
                             p.addLast("encoder", new StringEncoder());
                             p.addLast(new ClientHandler());
