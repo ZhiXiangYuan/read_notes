@@ -4,3 +4,6 @@
 
 # java 编译文件
 *.class
+
+# Mac file
+.DS_Store
